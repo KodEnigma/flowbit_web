@@ -24,6 +24,12 @@
           @click.prevent="$emit('navigate', '/terms')"
           >Terms</a
         >
+        <a
+          class="hover:text-primary transition-colors"
+          href="/contact"
+          @click.prevent="$emit('navigate', '/contact')"
+          >Contact</a
+        >
       </div>
       <p class="text-xs text-slate-400">© 2026 Zoltraa Technologies. All rights reserved.</p>
     </div>

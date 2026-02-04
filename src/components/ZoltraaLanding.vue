@@ -15,6 +15,9 @@
       <div v-else-if="isTerms">
         <TermsOfService @navigateBack="() => push('/')" />
       </div>
+      <div v-else-if="isContact">
+        <ContactUs @navigateBack="(path) => push(path)" />
+      </div>
     </main>
 
     <AppFooter @navigate="(path) => push(path)" />
@@ -31,12 +34,14 @@ import FinalCTA from './FinalCTA.vue'
 import AppFooter from './AppFooter.vue'
 import PrivacyPolicy from './PrivacyPolicy.vue'
 import TermsOfService from './TermsOfService.vue'
+import ContactUs from './ContactUs.vue'
 
 import { useRouter } from '../router.js'
 const { route, push } = useRouter()
 const isHome = computed(() => route.value === '/')
 const isPrivacy = computed(() => route.value === '/privacy')
 const isTerms = computed(() => route.value === '/terms')
+const isContact = computed(() => route.value === '/contact')
 
 const isDarkMode = ref(false)
 const handleThemeToggle = () => {
