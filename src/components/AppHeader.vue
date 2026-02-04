@@ -13,7 +13,6 @@
         <a class="text-sm font-semibold hover:text-primary transition-colors" href="#">Pricing</a>
       </nav>
       <div class="flex items-center gap-3">
-        <button class="hidden sm:block px-5 py-2 text-sm font-bold bg-slate-200/50 dark:bg-slate-800 rounded-xl hover:bg-slate-200 transition-all">Log In</button>
         <button class="glow-button px-6 py-2 text-sm font-bold bg-primary text-white rounded-xl" @click="$emit('toggleTheme')">Get Started</button>
       </div>
     </div>
@@ -26,7 +25,7 @@ defineEmits(['toggleTheme'])
 </script>
 
 <style scoped>
-/* Scoped styles required for custom classes if they aren't globally defined, 
+/* Scoped styles required for custom classes if they aren't globally defined,
    but we rely on Tailwind/global styles. Replicating necessary custom CSS here for safety. */
 .glass-card {
     background: rgba(255, 255, 255, 0.7);
