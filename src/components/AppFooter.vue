@@ -5,7 +5,7 @@
         <div class="size-8 bg-primary rounded-lg flex items-center justify-center text-white">
           <span class="material-symbols-outlined text-sm font-bold">account_balance_wallet</span>
         </div>
-        <h2 class="text-lg font-extrabold tracking-tight">Flowbit</h2>
+        <h2 class="text-lg font-extrabold tracking-tight">Zoltraa</h2>
       </div>
       <div class="flex gap-8 text-sm font-semibold text-slate-500">
         <a class="hover:text-primary transition-colors" href="#">Twitter</a>
@@ -13,7 +13,7 @@
         <a class="hover:text-primary transition-colors" href="#">Privacy</a>
         <a class="hover:text-primary transition-colors" href="#">Terms</a>
       </div>
-      <p class="text-xs text-slate-400">© 2024 Flowbit Technologies. All rights reserved.</p>
+      <p class="text-xs text-slate-400">© 2026 Zoltraa Technologies. All rights reserved.</p>
     </div>
   </footer>
 </template>

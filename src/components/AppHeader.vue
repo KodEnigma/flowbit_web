@@ -5,7 +5,7 @@
         <div class="size-10 bg-primary rounded-lg flex items-center justify-center text-white shadow-lg">
           <span class="material-symbols-outlined font-bold">account_balance_wallet</span>
         </div>
-        <h2 class="text-xl font-extrabold tracking-tight">Flowbit</h2>
+        <h2 class="text-xl font-extrabold tracking-tight">Zoltraa</h2>
       </div>
       <nav class="hidden md:flex items-center gap-10">
         <a class="text-sm font-semibold hover:text-primary transition-colors" href="#">Features</a>
@@ -21,7 +21,7 @@
 </template>
 
 <script setup>
-// Define emit to communicate theme toggle request up to the parent (FlowbitLanding)
+// Define emit to communicate theme toggle request up to the parent (ZoltraaLanding)
 defineEmits(['toggleTheme'])
 </script>
 

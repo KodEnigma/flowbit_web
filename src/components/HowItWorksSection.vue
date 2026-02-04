@@ -2,7 +2,7 @@
   <section class="px-6 lg:px-40 py-20 bg-background-light dark:bg-slate-900/50">
     <div class="max-w-[1200px] mx-auto">
       <div class="flex flex-col items-center text-center mb-16">
-        <h2 class="text-3xl lg:text-4xl font-black">How Flowbit Works</h2>
+        <h2 class="text-3xl lg:text-4xl font-black">How Zoltraa Works</h2>
         <div class="w-20 h-1.5 bg-primary rounded-full mt-4"></div>
       </div>
       <div class="grid grid-cols-1 md:grid-cols-3 gap-10">

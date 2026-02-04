@@ -1,9 +1,9 @@
 <script setup>
-import FlowbitLanding from './components/FlowbitLanding.vue'
+import ZoltraaLanding from './components/ZoltraaLanding.vue'
 </script>
 
 <template>
-  <FlowbitLanding />
+  <ZoltraaLanding />
 </template>
 
 <style>

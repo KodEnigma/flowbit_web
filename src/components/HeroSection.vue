@@ -10,7 +10,7 @@
           All your bank accounts. <span class="text-primary">One vibrant view.</span>
         </h1>
         <p class="text-lg text-slate-600 dark:text-slate-400 leading-relaxed max-w-lg">
-          Stop chasing bank alerts. Flowbit aggregates your Nigerian accounts into a single, beautiful dashboard with AI that categorizes every Kobo automatically.
+          Stop chasing bank alerts. Zoltraa aggregates your Nigerian accounts into a single, beautiful dashboard with AI that categorizes every Kobo automatically.
         </p>
         <div class="flex flex-col sm:flex-row gap-4">
           <button class="glow-button flex h-14 items-center justify-center rounded-xl bg-primary px-8 text-lg font-bold text-white transition-all">
