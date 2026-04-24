@@ -8,16 +8,18 @@ import Footer from './components/Footer';
 
 export default function LandingPage() {
   return (
-    <main className="min-h-screen">
+    <main className="min-h-screen bg-white">
       <Header />
       <Hero />
       <Features />
-      <HowItWorks />
+
+      {/* <HowItWorks />
+      <Pricing />
       <FAQ />
       <Footer />
+        */}
     </main>
   );
 }
 
 
-       // <Pricing />

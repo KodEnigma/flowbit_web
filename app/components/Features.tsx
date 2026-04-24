@@ -1,23 +1,48 @@
 const Features = () => {
   const features = [
-    { title: 'Clear Spending Breakdown', desc: 'Get visual summaries...' },
-    { title: 'Smart Transaction Insights', desc: 'Zoltraa analyzes your transactions...' },
-    { title: 'Ask Anything About Your Money', desc: 'Interact with your finances...' },
+    { title: 'Clear Spending Breakdown', desc: 'Get visual summaries of your income and expenses at a glance. Quickly identify key spending areas and make smarter financial decisions with confidence.' },
+    { title: 'Smart Transaction Insights', desc: 'Zoltraa analyzes your transactions and automatically organizes your spending. Spot trends, understand your habits, and see exactly where your money goes over time.' },
+    { title: 'Ask Anything About Your Money', desc: 'Interact with your finances using simple questions. Ask things like “How much did I spend this month?” and get instant, easy-to-understand answers.' },
   ];
 
   return (
-    <section className="py-16 px-8" id="solution">
-      <h2 className="text-3xl font-bold mb-4">So... what does Zoltraa actually do?</h2>
-      <p className="text-gray-600 mb-8">A simple look at what Zoltraa offers you.</p>
-      <div className="grid grid-cols-1 md:grid-cols-3 gap-8">
-        {features.map((f, i) => (
-          <div key={i} className="p-6 border rounded-2xl">
-            <h3 className="font-bold text-lg mb-2">{f.title}</h3>
-            <p className="text-sm text-gray-500">{f.desc}</p>
-          </div>
-        ))}
+    <section className="mt-[100px] bg-white py-16 px-8" id="solution">
+      <div className="flex flex-row items-start justify-between">
+        {textColum()}
+
+        <div className="flex flex-col gap-8 w-[420px]">
+          {features.map((f, i) => (
+            <div key={i} className="">
+              {cardItem()}
+              <div className="mt-4"></div>
+              <h3 className="font-medium text-[16px]/[24px] mb-[4px] text-[#4797F6]">{f.title}</h3>
+              <p className="text-[14px]/[20px] text-[#767676]">{f.desc}</p>
+            </div>
+          ))}
+        </div>
       </div>
     </section>
+  );
+};
+
+const cardItem = () => {
+  return (
+    <div className="border border-[#0000000D] rounded-[12px] h-[232px] w-[420px] bg-[#FBFBFB]">
+    </div>
+  );
+};
+
+const textColum = () => {
+  return (
+    <div>
+      <p className="text-[#BABABA] mb-[4px] font-[12px] font-medium">OUR SOLUTION</p>
+
+      <h2 className="text-[36px]/[44px] font-semibold mb-[10px] text-[#1A1A1A]">
+        So... what does <br /> Zoltraa actually do?
+      </h2>
+
+      <p className="text-[#767676] font-[14px]/[20px]">A simple look at what Zoltraa offers you.</p>
+    </div>
   );
 };
 

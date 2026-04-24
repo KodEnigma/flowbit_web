@@ -53,7 +53,7 @@ const Hero = () => {
   ];
 
   return (
-    <section className="text-center py-16 bg-white flex flex-col items-center" id="intro">
+    <section className="text-center pt-16 bg-white flex flex-col items-center" id="intro">
 
       <div className="inline-flex flex-row gap-2 items-center py-[4px] px-[12px] bg-[#F6F2FF] rounded-full mb-6">
         <div className="w-[8px] h-[8px] bg-[#A479FF] rounded-full"></div>
