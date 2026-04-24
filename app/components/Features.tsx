@@ -7,10 +7,10 @@ const Features = () => {
 
   return (
     <section className="mt-[100px] bg-white py-16 px-4 md:px-8" id="solution">
-      <div className="flex flex-row items-start justify-between">
+      <div className="flex flex-col md:flex-row items-start justify-between gap-10 md:gap-0">
         {textColum()}
 
-        <div className="flex flex-col gap-8 w-[420px]">
+        <div className="flex flex-col gap-8 w-full md:w-[420px]">
           {features.map((f, i) => (
             <div key={i} className="">
               {cardItem()}
@@ -27,7 +27,7 @@ const Features = () => {
 
 const cardItem = () => {
   return (
-    <div className="border border-[#0000000D] rounded-[12px] h-[232px] w-[420px] bg-[#FBFBFB]">
+    <div className="border border-[#0000000D] rounded-[12px] h-[232px] w-full md:w-[420px] bg-[#FBFBFB]">
     </div>
   );
 };
