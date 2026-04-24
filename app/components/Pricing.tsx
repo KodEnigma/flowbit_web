@@ -1,28 +1,60 @@
+const features = [
+  { desc: '✓  Upload transaction history (PDF)' },
+  { desc: '✓  Smart transaction insights' },
+  { desc: '✓  Spending breakdown' },
+  { desc: '✓  AI chat access' },
+];
+
 const Pricing = () => {
   return (
-    <section className="py-16 px-8 bg-gray-50" id="pricing">
-      <h2 className="text-3xl font-bold text-center mb-8">Let's talk Zoltraa pricing</h2>
-      <div className="flex justify-center gap-8">
-        <div className="p-8 bg-white border rounded-3xl w-80">
-          <h3 className="text-lg font-bold">Free</h3>
-          <p className="text-sm text-gray-500 mb-6">Best for getting started</p>
-          <ul className="space-y-4 text-sm mb-8">
-            <li>✓ Upload transaction history</li>
-            <li>✓ Smart transaction insights</li>
+    <section className="py-16 px-8 bg-white" id="pricing">
+      {textColum()}
+
+      <div className="flex justify-start gap-8 mt-[32px]">
+        <div className="p-[24px] bg-white border rounded-[12px] w-[392px] h-[536px] flex flex-col">
+
+          <h3 className="text-[#A3A3A3] font-medium text-[14px]">Basic</h3>
+          <p className="text-[24px]/[32px] font-semibold text-[#1A1A1A] mb-[12px]">Free</p>
+          <p className="text-[14px]/[20px] text-[#A3A3A3] mb-[30px]">
+            Get started with Zoltraa at no cost. Upload your transaction history
+            and start exploring your financial insights instantly.
+          </p>
+
+
+          <ul className="space-y-[16px] text-[14px]/[20px] mb-8 text-[#000000]">
+            {features.map((f, _) => (
+              <li>{f.desc}</li>
+            ))}
           </ul>
-          <button className="w-full py-3 bg-gray-100 rounded-lg">Start for Free</button>
-        </div>
-        <div className="p-8 bg-black text-white rounded-3xl w-80">
-          <h3 className="text-lg font-bold">Pro</h3>
-          <p className="text-sm mb-6">₦1000 <span className='text-gray-400'>/month</span></p>
-          <ul className="space-y-4 text-sm mb-8 text-gray-300">
-            <li>✓ Includes everything in Basics</li>
-            <li>✓ Direct bank account connection</li>
-          </ul>
-          <button className="w-full py-3 bg-white text-black rounded-lg">Upgrade to Pro</button>
+
+          <div className="flex-grow"></div>
+
+          <button className="w-full py-[10px] bg-[#F5F5F5] rounded-[12px] text-[#7B7B7B] fomt-medium text-[14px]">
+            Start for Free
+          </button>
+
+          <div className="flex flex-col items-center justify-center mt-[20px]">
+            <p className="text-[12px]/[16px] text-[#A3A3A3]">
+              Best for getting started
+            </p>
+          </div>
         </div>
       </div>
     </section>
+  );
+};
+
+const textColum = () => {
+  return (
+    <div className="flex flex-col items-start">
+      <p className="text-[#BABABA] mb-[4px] font-[12px] font-medium">PRICING</p>
+
+      <h2 className="text-[36px]/[44px] font-semibold mb-[10px] text-[#1A1A1A]">
+        Let’s talk <br /> Zoltraa pricing
+      </h2>
+
+      <p className="text-[#767676] font-[14px]/[20px]">Show the plan that’s right for you on Zoltraa</p>
+    </div>
   );
 };
 
