@@ -12,8 +12,8 @@ export default function LandingPage() {
       <Header />
       <Hero />
       <Features />
-
-      {/* <HowItWorks />
+      <HowItWorks />
+      {/* 
       <Pricing />
       <FAQ />
       <Footer />
