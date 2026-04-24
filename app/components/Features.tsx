@@ -6,7 +6,7 @@ const Features = () => {
   ];
 
   return (
-    <section className="mt-[100px] bg-white py-16 px-8" id="solution">
+    <section className="mt-[100px] bg-white py-16 px-4 md:px-8" id="solution">
       <div className="flex flex-row items-start justify-between">
         {textColum()}
 

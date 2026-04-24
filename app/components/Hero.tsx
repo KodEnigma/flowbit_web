@@ -54,7 +54,6 @@ const Hero = () => {
 
   return (
     <section className="text-center pt-16 bg-white flex flex-col items-center" id="intro">
-
       <div className="inline-flex flex-row gap-2 items-center py-[4px] px-[12px] bg-[#F6F2FF] rounded-full mb-6">
         <div className="w-[8px] h-[8px] bg-[#A479FF] rounded-full"></div>
         <div className="text-sm font-medium text-[#A479FF]">
@@ -62,24 +61,23 @@ const Hero = () => {
         </div>
       </div>
 
-      <div className="relative">
-        <div className="absolute -left-14 top-[-10px] hidden md:block">
+      <div className="relative px-8 md:px-0">
+        <div className="absolute -left-6 md:-left-14 top-[-10px]">
           {batchSvg}
         </div>
-
-        <h1 className="text-[40px] leading-[1.2] font-semibold text-[#1A1A1A] max-w-2xl mx-auto">
+        <h1 className="text-[28px] sm:text-[30px] md:text-[40px] leading-[1.2] font-semibold text-[#1A1A1A] max-w-2xl mx-auto">
           Turn your transactions into<br />
           insights for smarter money<br />
           management in Nigeria.
         </h1>
-
-        <div className="absolute -right-2 bottom-[-5px] hidden md:block">
+        <div className="absolute -right-2 md:-right-2 bottom-[-5px]">
           {ngnSvg}
         </div>
       </div>
 
-      <p className="text-[#A3A3A3] mt-7 text-[14px]/[20px] font-medium">
-        Connect your accounts or upload your data to see your<br />
+      <p className="text-[#A3A3A3] mt-7 text-[14px]/[20px] font-medium px-6 md:px-0">
+        Connect your accounts or upload your data to see your<br/>
+        <span className="md:hidden"> </span>
         spending, income, and habits in one place.
       </p>
 
@@ -106,11 +104,10 @@ const Hero = () => {
           alt="App Mockup"
           className="relative z-10 w-[355px] h-auto object-contain"
         />
-
-        <div className="absolute bottom-0 w-[808px] h-[400px] bg-gradient-to-b from-[#E9F5FF] to-[#FFFFFF] rounded-t-[32px] z-0">
+        <div className="absolute bottom-0 w-[808px] h-[400px] bg-gradient-to-b from-[#E9F5FF] to-[
+#FFFFFF] rounded-t-[32px] z-0">
         </div>
       </div>
-
     </section>
   );
 };
