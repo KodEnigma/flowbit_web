@@ -52,14 +52,9 @@ const ToggleIcon = ({ open }: { open: boolean }) => (
 );
 
 const FAQItem = ({ q, a, isOpen, isFirst, onToggle }: FAQItemProps) => (
-  <div
-    style={{
-      borderBottom: '1px dashed #E5E5E5',
-      borderTop: isFirst ? 'none' : undefined,
-    }}
-  >
+  <div style={{ borderBottom: '1px dashed #E5E5E5', borderTop: isFirst ? 'none' : undefined }} >
     <button
-      className="flex items-center justify-between w-full py-[20px] text-left bg-transparent border-none cursor-pointer"
+      className="flex items-start justify-between w-full py-[20px] text-left bg-transparent border-none cursor-pointer"
       onClick={onToggle}
       aria-expanded={isOpen}
     >
@@ -91,7 +86,7 @@ const FAQ = () => {
             FREQUENTLY ASKED QUESTIONS
           </p>
           <h2 className="text-[36px]/[44px] font-semibold text-[#1A1A1A]">
-            A few things you<br/> might ask
+            A few things you<br /> might ask
           </h2>
         </div>
 
