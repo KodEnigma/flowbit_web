@@ -26,7 +26,7 @@ const HowItWorks = () => {
   const [active, setActive] = useState(0);
   return (
     <section className="py-16 px-8" id="how">
-      <div className="flex flex-col md:flex-row items-start justify-between gap-10 md:gap-16">
+      <div className="flex flex-col md:flex-row items-start justify-between gap-10 md:gap-16 max-w-[810px] mx-auto">
         {whatItDoes(active, setActive)}
         <div className="w-full md:w-[420px] h-[484px] bg-[#FBFBFB] border border-[#0000000D] rounded-[12px] p-4 overflow-hidden">
           <video

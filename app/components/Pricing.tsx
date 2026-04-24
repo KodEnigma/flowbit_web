@@ -7,7 +7,7 @@ const features = [
 
 const Pricing = () => {
   return (
-    <section className="py-16 px-8 bg-white" id="pricing">
+    <section className="py-16 px-8 bg-white max-w-[810px] mx-auto" id="pricing">
       {textColum()}
 
       <div className="flex justify-start gap-8 mt-[32px]">

@@ -57,7 +57,7 @@ const Features = () => {
       `}</style>
 
       <section className="mt-[100px] bg-white py-16 px-4 md:px-8" id="solution">
-        <div className="flex flex-col md:flex-row items-start justify-between gap-10 md:gap-0">
+        <div className="flex flex-col md:flex-row items-start justify-between gap-10 md:gap-0 max-w-[810px] mx-auto">
 
           {/* Sticky text column — top on mobile, side on desktop */}
           <div className="sticky top-0 z-10 bg-white py-4 w-full md:py-0 md:w-auto md:sticky md:top-[100px] md:self-start">
