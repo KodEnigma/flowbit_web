@@ -43,7 +43,7 @@ const HowItWorks = () => {
     scrollAccum.current = Math.max(0, Math.min(TOTAL_SCROLL, scrollAccum.current + delta));
     const raw = scrollAccum.current / SCROLL_PER_STEP;
     const newActive = Math.min(steps.length - 1, Math.floor(raw));
-    const newProgress = newActive === steps.length - 1 ? 100 : (raw - newActive) * 100;
+    const newProgress = (raw - newActive) * 100;
     setActive(newActive);
     setProgress(newProgress);
   }, []);

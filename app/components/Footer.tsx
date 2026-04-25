@@ -4,7 +4,7 @@ import { Container, svgString } from "./Header";
 
 const Footer = () => {
   return (
-    <footer className="bg-white border-t border-gray-100 py-10">
+    <footer className="bg-white border-t border-gray-100 py-10 font-mono">
       <Container className="flex items-start justify-between">
         {/* Left — logo + copyright */}
         <div className="flex flex-col gap-2">
@@ -27,8 +27,9 @@ const Footer = () => {
           {/* Discover more */}
           <div className="flex flex-col gap-2">
             <p className="text-sm font-medium text-gray-900 mb-1">Discover more</p>
-            <a href="#" className="text-sm text-gray-400 hover:text-gray-700 transition-colors">Privacy</a>
-            <a href="#" className="text-sm text-gray-400 hover:text-gray-700 transition-colors">Terms</a>
+            <a href="/privacy" className="text-sm text-gray-400 hover:text-gray-700 transition-colors">Privacy</a>
+            <a href="/terms" className="text-sm text-gray-400 hover:text-gray-700 transition-colors">Terms</a>
+            <a href="/contact" className="text-sm text-gray-400 hover:text-gray-700 transition-colors">Contact</a>
           </div>
         </div>
       </Container>
