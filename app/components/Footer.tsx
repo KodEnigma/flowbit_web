@@ -1,13 +1,19 @@
 "use client";
 
+import { useRouter } from "next/navigation";
 import { Container, svgString } from "./Header";
 
 const Footer = () => {
+  const router = useRouter();
+  const handleClick = () => {
+    router.push('/');
+  };
+
   return (
     <footer className="bg-white border-t border-gray-100 py-10 font-mono">
       <Container className="flex items-start justify-between">
         {/* Left — logo + copyright */}
-        <div className="flex flex-col gap-2">
+        <div className="flex flex-col gap-2 cursor-pointer" onClick={handleClick}>
           {svgString}
           <p className="text-xs text-gray-400 mt-1">
             © 2026 Zoltraa Technologies. All right reserved

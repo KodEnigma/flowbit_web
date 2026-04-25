@@ -1,6 +1,8 @@
 "use client";
 
 import { motion } from 'framer-motion';
+import { useRouter } from 'next/navigation';
+import router from 'next/router';
 
 export const svgString = 
 <svg width="100" height="24" viewBox="0 0 100 24" fill="none" xmlns="http://www.w3.org/2000/svg">
@@ -33,6 +35,11 @@ export const Container = ({ children, className = '' }) => (
 );
 
 const Header = () => {
+  const router = useRouter();
+  const handleClick = () => {
+    router.push('/');
+  };
+
   return (
     <motion.header
       className="fixed top-0 left-0 right-0 z-50 bg-white border-b border-gray-100"
@@ -46,7 +53,7 @@ const Header = () => {
         <div className='hidden sm:flex'> </div>
 
         {/* Center — logo */}
-        <div className="flex justify-center">
+        <div className="flex justify-center cursor-pointer" onClick={handleClick}>
           {svgString}
         </div>
 

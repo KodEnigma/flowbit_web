@@ -3,8 +3,9 @@ import Header from '../components/Header';
 import Footer from '../components/Footer';
 
 export const metadata: Metadata = {
-  title: 'Contact Us — Zoltraa',
-  description: 'Get in touch with Zoltraa Technologies.',
+  title: 'Contact Us',
+  description:
+    'Get in touch with Zoltraa Technologies. Reach out for support, inquiries, or feedback about our expense tracking platform.',
 };
 
 export default function ContactPage() {
