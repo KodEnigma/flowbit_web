@@ -130,10 +130,10 @@ const FAQ = () => {
 
   return (
     <section ref={sectionRef} className="py-16 px-8 bg-white max-w-[810px] mx-auto" id="faq">
-      <div className="flex gap-12">
+      <div className="flex flex-col md:flex-row gap-8 md:gap-12">
 
-        {/* Left heading */}
-        <div className="flex-shrink-0">
+        {/* Heading */}
+        <div className="md:flex-shrink-0">
           <motion.p
             className="text-[#BABABA] text-[12px] font-medium tracking-wide mb-[4px]"
             initial={{ opacity: 0, y: 10 }}
@@ -143,7 +143,7 @@ const FAQ = () => {
             FREQUENTLY ASKED QUESTIONS
           </motion.p>
           <motion.h2
-            className="text-[36px]/[44px] font-semibold text-[#1A1A1A]"
+            className="text-[28px]/[36px] md:text-[36px]/[44px] font-semibold text-[#1A1A1A]"
             initial={{ opacity: 0, y: 14 }}
             animate={hasEntered ? { opacity: 1, y: 0 } : {}}
             transition={{ duration: 0.5, delay: 0.08, ease: [0.22, 1, 0.36, 1] }}
@@ -152,10 +152,10 @@ const FAQ = () => {
           </motion.h2>
         </div>
 
-        <div className="flex-grow" />
+        <div className="hidden md:block flex-grow" />
 
         {/* FAQ list */}
-        <div className="flex flex-col w-[500px]">
+        <div className="flex flex-col w-full md:w-[500px]">
           {faqs.map((item, i) => (
             <FAQItem
               key={i}

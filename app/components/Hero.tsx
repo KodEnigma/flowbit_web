@@ -91,7 +91,7 @@ const Hero = () => {
           {batchSvg}
         </motion.div>
         <motion.h1
-          className="text-[28px] sm:text-[30px] md:text-[40px] leading-[1.2] font-semibold text-[#1A1A1A] max-w-2xl mx-auto"
+          className="text-[22px] sm:text-[30px] md:text-[35px] leading-[1.2] font-semibold text-[#1A1A1A] max-w-2xl mx-auto"
           initial={{ opacity: 0, y: 24 }}
           animate={{ opacity: 1, y: 0 }}
           transition={{ duration: 0.6, delay: 0.1, ease: [0.22, 1, 0.36, 1] }}
@@ -121,7 +121,7 @@ const Hero = () => {
       </div>
 
       <motion.p
-        className="text-[#A3A3A3] mt-7 text-[14px]/[20px] font-medium px-6 md:px-0"
+        className="text-[#A3A3A3] mt-7 text-[12px]/[18px] sm:text-[14px]/[20px] font-medium px-6 md:px-0"
         initial={{ opacity: 0, y: 16 }}
         animate={{ opacity: 1, y: 0 }}
         transition={{ duration: 0.5, delay: 0.25, ease: [0.22, 1, 0.36, 1] }}
@@ -166,8 +166,8 @@ const Hero = () => {
           alt="App Mockup"
           className="relative z-10 w-[355px] h-auto object-contain"
         />
-        <div className="absolute bottom-0 w-[808px] h-[400px] bg-gradient-to-b from-[#E9F5FF] to-[
-#FFFFFF] rounded-t-[32px] z-0">
+        <div className="absolute bottom-0 w-full sm:w-full md:w-[808px] h-[400px] bg-gradient-to-b from-[#E9F5FF] to-[
+#FFFFFF] rounded-t-[32px] z-0 ">
         </div>
       </motion.div>
     </section>

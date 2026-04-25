@@ -1,6 +1,7 @@
 'use client';
 
-import { useEffect, useRef } from 'react';
+import { useRef } from 'react';
+import { motion, useInView } from 'framer-motion';
 
 const Features = () => {
   const features = [
@@ -21,74 +22,88 @@ const Features = () => {
     },
   ];
 
-  const itemRefs = useRef<(HTMLDivElement | null)[]>([]);
-
-  useEffect(() => {
-    const observer = new IntersectionObserver(
-      (entries) => {
-        entries.forEach((entry) => {
-          if (entry.isIntersecting) {
-            entry.target.classList.add('feature-visible');
-          }
-        });
-      },
-      { threshold: 0.2 }
-    );
-
-    itemRefs.current.forEach((el) => {
-      if (el) observer.observe(el);
-    });
-
-    return () => observer.disconnect();
-  }, []);
+  const sectionRef = useRef<HTMLElement>(null);
+  const headingInView = useInView(sectionRef, { once: true, amount: 0.15 });
 
   return (
-    <>
-      <style>{`
-        .feature-item {
-          opacity: 0;
-          transform: translateY(32px);
-          transition: opacity 0.5s ease, transform 0.5s ease;
-        }
-        .feature-visible {
-          opacity: 1;
-          transform: translateY(0);
-        }
-      `}</style>
+    <section ref={sectionRef} className="mt-[100px] bg-white py-16 px-4 md:px-8" id="solution">
+      <div className="flex flex-col md:flex-row items-start justify-between gap-10 md:gap-0 max-w-[810px] mx-auto">
 
-      <section className="mt-[100px] bg-white py-16 px-4 md:px-8" id="solution">
-        <div className="flex flex-col md:flex-row items-start justify-between gap-10 md:gap-0 max-w-[810px] mx-auto">
-
-          {/* Sticky text column — top on mobile, side on desktop */}
-          <div className="sticky top-0 z-10 bg-white py-4 w-full md:py-0 md:w-auto md:sticky md:top-[100px] md:self-start">
-            <p className="text-[#BABABA] mb-[4px] text-[12px] font-medium">OUR SOLUTION</p>
-            <h2 className="text-[36px]/[44px] font-semibold mb-[10px] text-[#1A1A1A]">
-              So... what does <br /> Zoltraa actually do?
-            </h2>
-            <p className="text-[#767676] text-[14px]/[20px]">A simple look at what Zoltraa offers you.</p>
-          </div>
-
-          <div className="flex flex-col gap-12 w-full md:w-[420px]">
-            {features.map((f, i) => (
-              <div
-                key={i}
-                ref={(el) => { itemRefs.current[i] = el; }}
-                className="feature-item"
-                style={{ transitionDelay: `${i * 60}ms` }}
-              >
-                <div className="border border-[#0000000D] rounded-[12px] h-[232px] w-full bg-[#FBFBFB]">
-                  <img src={f.gif} alt="Solution Gif" className="w-full h-full object-contain" />
-                </div>
-                <div className="mt-4" />
-                <h3 className="font-medium text-[16px]/[24px] mb-[4px] text-[#4797F6]">{f.title}</h3>
-                <p className="text-[14px]/[20px] text-[#767676]">{f.desc}</p>
-              </div>
-            ))}
-          </div>
-
+        {/* Sticky text column — top on mobile, side on desktop */}
+        <div className="sticky top-0 z-10 bg-white py-4 w-full md:py-0 md:w-auto md:sticky md:top-[100px] md:self-start">
+          <motion.p
+            className="text-[#BABABA] mb-[4px] text-[12px] font-medium"
+            initial={{ opacity: 0, y: 10 }}
+            animate={headingInView ? { opacity: 1, y: 0 } : {}}
+            transition={{ duration: 0.4, ease: [0.22, 1, 0.36, 1] }}
+          >
+            OUR SOLUTION
+          </motion.p>
+          <motion.h2
+            className="text-[36px]/[44px] font-semibold mb-[10px] text-[#1A1A1A]"
+            initial={{ opacity: 0, y: 14 }}
+            animate={headingInView ? { opacity: 1, y: 0 } : {}}
+            transition={{ duration: 0.5, delay: 0.08, ease: [0.22, 1, 0.36, 1] }}
+          >
+            So... what does <br /> Zoltraa actually do?
+          </motion.h2>
+          <motion.p
+            className="text-[#767676] text-[14px]/[20px]"
+            initial={{ opacity: 0, y: 12 }}
+            animate={headingInView ? { opacity: 1, y: 0 } : {}}
+            transition={{ duration: 0.5, delay: 0.16, ease: [0.22, 1, 0.36, 1] }}
+          >
+            A simple look at what Zoltraa offers you.
+          </motion.p>
         </div>
-      </section>
-    </>
+
+        <div className="flex flex-col gap-12 w-full md:w-[420px]">
+          {features.map((f, i) => (
+            <FeatureItem key={i} feature={f} index={i} />
+          ))}
+        </div>
+
+      </div>
+    </section>
+  );
+};
+
+const FeatureItem = ({ feature, index }: { feature: { title: string; desc: string; gif: string }; index: number }) => {
+  const ref = useRef<HTMLDivElement>(null);
+  const inView = useInView(ref, { once: true, amount: 0.25 });
+
+  return (
+    <motion.div
+      ref={ref}
+      initial={{ opacity: 0, y: 32 }}
+      animate={inView ? { opacity: 1, y: 0 } : {}}
+      transition={{ duration: 0.5, delay: index * 0.1, ease: [0.22, 1, 0.36, 1] }}
+    >
+      <motion.div
+        className="border border-[#0000000D] rounded-[12px] h-[232px] w-full bg-[#FBFBFB] overflow-hidden"
+        whileHover={{ scale: 1.015, boxShadow: '0 4px 20px rgba(0,0,0,0.04)' }}
+        transition={{ duration: 0.25 }}
+      >
+        <img src={feature.gif} alt="Solution Gif" className="w-full h-full object-contain" />
+      </motion.div>
+      <div className="mt-4" />
+      <motion.h3
+        className="font-medium text-[16px]/[24px] mb-[4px] text-[#4797F6]"
+        initial={{ opacity: 0 }}
+        animate={inView ? { opacity: 1 } : {}}
+        transition={{ duration: 0.4, delay: 0.15 + index * 0.1 }}
+      >
+        {feature.title}
+      </motion.h3>
+      <motion.p
+        className="text-[14px]/[20px] text-[#767676]"
+        initial={{ opacity: 0 }}
+        animate={inView ? { opacity: 1 } : {}}
+        transition={{ duration: 0.4, delay: 0.25 + index * 0.1 }}
+      >
+        {feature.desc}
+      </motion.p>
+    </motion.div>
   );
 };
 

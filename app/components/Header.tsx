@@ -2,7 +2,7 @@
 
 import { motion } from 'framer-motion';
 
-const svgString = <svg width="100" height="24" viewBox="0 0 100 24" fill="none" xmlns="http://www.w3.org/2000/svg">
+export const svgString = <svg width="100" height="24" viewBox="0 0 100 24" fill="none" xmlns="http://www.w3.org/2000/svg">
   <g clip-path="url(#clip0_2606_8384)">
     <path d="M21.1691 1.79764C20.7401 1.79764 20.3372 1.79764 19.9343 1.79764C18.1875 1.72553 16.4428 1.98408 14.7911 2.5598C13.1155 3.06148 11.5484 3.87451 10.1712 4.95664C8.57479 6.20752 6.75937 7.14705 4.81876 7.7267C3.3013 8.25358 1.71435 8.55116 0.109863 8.60975C0.169542 7.72637 0.290169 6.84821 0.470879 5.98163C1.68135 5.88864 2.87513 5.64137 4.02349 5.24574C5.70504 4.75574 7.27955 3.95149 8.66436 2.87517C10.2561 1.62606 12.066 0.686597 14.0011 0.105124L14.3412 0C17.5118 0.147175 19.6936 0.651775 21.1691 1.79764Z" fill="#4797F6" />
     <path d="M23.7276 7.16433C22.969 7.22741 22.3149 7.22213 21.6348 7.21688C19.8961 7.13792 18.1583 7.38936 16.5125 7.95802C14.8369 8.45707 13.2696 9.26838 11.8926 10.3496C10.3048 11.5971 8.5007 12.5381 6.57152 13.1249C4.6481 13.7888 2.61791 14.0847 0.585998 13.9975H0.0366245C0.0366245 13.3667 0 12.6992 0 11.9896V11.4166H0.606925C2.35545 11.4892 4.10196 11.2306 5.75532 10.6545C7.43185 10.155 8.99932 9.3418 10.3753 8.25762C11.9734 7.01064 13.7884 6.07309 15.7277 5.49284C17.6426 4.82987 19.6631 4.52868 21.6871 4.60454C22.158 4.60454 22.6236 4.60454 23.1207 4.60454C23.4115 5.43411 23.6149 6.29207 23.7276 7.16433Z" fill="#4797F6" />
@@ -17,17 +17,49 @@ const svgString = <svg width="100" height="24" viewBox="0 0 100 24" fill="none" 
   </defs>
 </svg>
 
+export const Container = ({ children, className = '' }) => (
+  <div className={`max-w-6xl mx-auto px-6 w-full ${className}`}>
+    {children}
+  </div>
+);
+
 const Header = () => {
   return (
-    <motion.header 
-      className="flex items-center p-4 bg-white"
+    <motion.header
+      className="fixed top-0 left-0 right-0 z-50 bg-white border-b border-gray-100"
+      style={{ paddingTop: 'env(safe-area-inset-top)' }}
       initial={{ opacity: 0, y: -10 }}
       animate={{ opacity: 1, y: 0 }}
       transition={{ duration: 0.5 }}
     >
-      <div className="mx-auto">
-        {svgString}
-      </div>
+      <Container className="grid grid-cols-3 items-center h-14 md:h-16">
+        {/* Left — nav links (hidden on mobile) */}
+        <nav className="hidden md:flex items-center gap-6 text-sm text-gray-500">
+        </nav>
+
+        {/* Center — logo */}
+        <div className="flex justify-center">
+          {svgString}
+        </div>
+
+        {/* Right — CTA */}
+        <div className="flex justify-end">
+          <div className="flex items-center bg-blue-400 rounded-full px-3 py-1.5 md:px-4 md:py-2 gap-2 md:gap-3">
+            {/* Apple */}
+            <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="white" className="w-4 h-4 md:w-5 md:h-5">
+              <path d="M18.71 19.5c-.83 1.24-1.71 2.45-3.05 2.47-1.34.03-1.77-.79-3.29-.79-1.53 0-2 .77-3.27.82-1.31.05-2.3-1.32-3.14-2.53C4.25 17 2.94 12.45 4.7 9.39c.87-1.52 2.43-2.48 4.12-2.51 1.28-.02 2.5.87 3.29.87.78 0 2.26-1.07 3.8-.91.65.03 2.47.26 3.64 1.98-.09.06-2.17 1.28-2.15 3.81.03 3.02 2.65 4.03 2.68 4.04-.03.07-.42 1.44-1.38 2.83M13 3.5c.73-.83 1.94-1.46 2.94-1.5.13 1.17-.34 2.35-1.04 3.19-.69.85-1.83 1.51-2.95 1.42-.15-1.15.41-2.35 1.05-3.11z" />
+            </svg>
+
+            {/* Divider */}
+            <div className="w-px h-4 md:h-5 bg-white opacity-40" />
+
+            {/* Android */}
+            <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="white" className="w-4 h-4 md:w-5 md:h-5">
+              <path d="M17.523 15.341A5.065 5.065 0 0 0 20 11a5.065 5.065 0 0 0-2.477-4.341l1.005-1.757a.25.25 0 1 0-.433-.25l-1.02 1.783A9.965 9.965 0 0 0 14 5.93V5a2 2 0 0 0-4 0v.93a9.965 9.965 0 0 0-3.075.505L5.905 4.652a.25.25 0 1 0-.433.25l1.005 1.757A5.065 5.065 0 0 0 4 11a5.065 5.065 0 0 0 2.477 4.341C5.344 16.964 4.5 19.122 4.5 21h15c0-1.878-.844-4.036-1.977-5.659zM10 9a1 1 0 1 1-2 0 1 1 0 0 1 2 0zm4 0a1 1 0 1 1 2 0 1 1 0 0 1-2 0z" />
+            </svg>
+          </div>
+        </div>
+      </Container>
     </motion.header>
   );
 };

@@ -1,17 +1,37 @@
+"use client";
+
+import { Container, svgString } from "./Header";
+
 const Footer = () => {
   return (
-    <footer className="py-16 px-8 bg-white border-t mt-16">
-      <div className="flex justify-between">
-        <div className="flex items-center gap-2">
-            <div className="w-8 h-8 bg-blue-600 rounded-lg"></div>
-            <span className="text-xl font-bold">Zoltraa</span>
+    <footer className="bg-white border-t border-gray-100 py-10">
+      <Container className="flex items-start justify-between">
+        {/* Left — logo + copyright */}
+        <div className="flex flex-col gap-2">
+          {svgString}
+          <p className="text-xs text-gray-400 mt-1">
+            © 2026 Zoltraa Technologies. All right reserved
+          </p>
         </div>
+
+        {/* Right — link columns */}
         <div className="flex gap-16">
-            <div><h4 className="font-bold mb-4">Company</h4><p className="text-sm">X (Twitter)</p><p className="text-sm">Linkedin</p><p className="text-sm">Email</p></div>
-            <div><h4 className="font-bold mb-4">Discover more</h4><p className="text-sm">Privacy</p><p className="text-sm">Terms</p></div>
+          {/* Company */}
+          <div className="flex flex-col gap-2">
+            <p className="text-sm font-medium text-gray-900 mb-1">Company</p>
+            <a href="#" className="text-sm text-gray-400 hover:text-gray-700 transition-colors">X (Twitter)</a>
+            <a href="#" className="text-sm text-gray-400 hover:text-gray-700 transition-colors">LinkedIn</a>
+            <a href="#" className="text-sm text-gray-400 hover:text-gray-700 transition-colors">Email</a>
+          </div>
+
+          {/* Discover more */}
+          <div className="flex flex-col gap-2">
+            <p className="text-sm font-medium text-gray-900 mb-1">Discover more</p>
+            <a href="#" className="text-sm text-gray-400 hover:text-gray-700 transition-colors">Privacy</a>
+            <a href="#" className="text-sm text-gray-400 hover:text-gray-700 transition-colors">Terms</a>
+          </div>
         </div>
-      </div>
-      <p className="text-gray-500 text-sm mt-8">© 2026 Zoltraa Technologies. All right reserved</p>
+      </Container>
     </footer>
   );
 };
