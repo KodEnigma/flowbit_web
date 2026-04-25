@@ -2,7 +2,6 @@
 
 import { motion } from 'framer-motion';
 import { useRouter } from 'next/navigation';
-import router from 'next/router';
 
 export const svgString = 
 <svg width="100" height="24" viewBox="0 0 100 24" fill="none" xmlns="http://www.w3.org/2000/svg">

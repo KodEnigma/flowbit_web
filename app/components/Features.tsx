@@ -8,17 +8,17 @@ const Features = () => {
     {
       title: 'Clear Spending Breakdown',
       desc: 'Get visual summaries of your income and expenses at a glance. Quickly identify key spending areas and make smarter financial decisions with confidence.',
-      gif: './solution_1.gif',
+      gif: '/solution_1.gif',
     },
     {
       title: 'Smart Transaction Insights',
       desc: 'Zoltraa analyzes your transactions and automatically organizes your spending. Spot trends, understand your habits, and see exactly where your money goes over time.',
-      gif: './solution_2.gif',
+      gif: '/solution_2.gif',
     },
     {
       title: 'Ask Anything About Your Money',
       desc: 'Interact with your finances using simple questions. Ask things like "How much did I spend this month?" and get instant, easy-to-understand answers.',
-      gif: './solution_3.gif',
+      gif: '/solution_3.gif',
     },
   ];
 
