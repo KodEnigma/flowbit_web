@@ -1,5 +1,6 @@
 "use client";
 import { motion } from 'framer-motion';
+import { useState } from 'react';
 
 const batchSvg = <svg width="41" height="41" viewBox="0 0 41 41" fill="none" xmlns="http://www.w3.org/2000/svg">
   <path d="M13.4316 6.62014C14.2734 5.49613 15.7036 4.98119 17.0687 5.31054L18.1102 5.56181C18.8466 5.73947 19.6207 5.67444 20.3171 5.37642L21.3021 4.9549C22.5932 4.40241 24.0892 4.67153 25.1068 5.63933L25.8832 6.3777C26.4321 6.89975 27.135 7.23048 27.8871 7.32059L28.9509 7.44805C30.3452 7.61511 31.5063 8.5962 31.9036 9.94313L32.2068 10.9707C32.4211 11.6973 32.8645 12.3352 33.4708 12.7893L34.3283 13.4316C35.4523 14.2734 35.9673 15.7036 35.6379 17.0687L35.3867 18.1102C35.209 18.8466 35.274 19.6207 35.5721 20.3171L35.9936 21.3021C36.5461 22.5932 36.2769 24.0892 35.3091 25.1068L34.5708 25.8832C34.0487 26.4321 33.718 27.135 33.6279 27.8871L33.5004 28.9509C33.3334 30.3452 32.3523 31.5063 31.0053 31.9036L29.9777 32.2068C29.2512 32.4211 28.6133 32.8645 28.1592 33.4708L27.5169 34.3283C26.6751 35.4523 25.2449 35.9673 23.8797 35.6379L22.8382 35.3867C22.1018 35.209 21.3278 35.274 20.6313 35.5721L19.6463 35.9936C18.3553 36.5461 16.8592 36.2769 15.8416 35.3091L15.0653 34.5708C14.5164 34.0487 13.8135 33.718 13.0614 33.6279L11.9976 33.5004C10.6032 33.3334 9.44219 32.3523 9.04484 31.0053L8.74169 29.9777C8.52735 29.2512 8.084 28.6133 7.47769 28.1592L6.62014 27.5169C5.49613 26.6751 4.98119 25.2449 5.31054 23.8797L5.56181 22.8382C5.73947 22.1018 5.67444 21.3278 5.37642 20.6313L4.9549 19.6463C4.40241 18.3553 4.67153 16.8592 5.63933 15.8416L6.3777 15.0653C6.89975 14.5164 7.23048 13.8135 7.32059 13.0614L7.44805 11.9976C7.61511 10.6032 8.5962 9.44219 9.94313 9.04484L10.9707 8.74169C11.6973 8.52735 12.3352 8.084 12.7893 7.47769L13.4316 6.62014Z" fill="#4797F6" />
@@ -52,6 +53,7 @@ const Hero = () => {
       }
     },
   ];
+  const [isLoaded, setIsLoaded] = useState(false);
 
   return (
     <section className="text-center pt-16 bg-white flex flex-col items-center" id="intro">
@@ -126,7 +128,7 @@ const Hero = () => {
         animate={{ opacity: 1, y: 0 }}
         transition={{ duration: 0.5, delay: 0.25, ease: [0.22, 1, 0.36, 1] }}
       >
-        Connect your accounts or upload your data to see your<br/>
+        Connect your accounts or upload your data to see your<br />
         <span className="md:hidden"> </span>
         spending, income, and habits in one place.
       </motion.p>
@@ -155,22 +157,41 @@ const Hero = () => {
         })}
       </motion.div>
 
-      <motion.div
-        className="relative mt-[34px] flex flex-col items-center"
-        initial={{ opacity: 0, y: 40 }}
-        animate={{ opacity: 1, y: 0 }}
-        transition={{ duration: 0.7, delay: 0.45, ease: [0.22, 1, 0.36, 1] }}
-      >
+      {MockupSection()}
+    </section>
+  );
+};
+
+const MockupSection = () => {
+  const [isLoaded, setIsLoaded] = useState(false);
+
+  return (
+    <motion.div
+      className="relative mt-[34px] flex flex-col items-center"
+      initial={{ opacity: 0, y: 40 }}
+      animate={{ opacity: 1, y: 0 }}
+      transition={{ duration: 0.7, delay: 0.45, ease: [0.22, 1, 0.36, 1] }}
+    >
+      <div className="relative z-10 w-[355px] min-h-[400px] flex items-center justify-center">
+
+        {!isLoaded && (
+          <div className="w-full h-[600px] bg-gray-600 animate-pulse rounded-2xl overflow-hidden">
+            <div className="w-full h-full bg-gradient-to-r from-transparent via-white/30 to-transparent animate-[shimmer_1.5s_infinite] -translate-x-full" />
+          </div>
+        )}
+
         <img
           src="/Shots_Mockups_1.png"
           alt="App Mockup"
-          className="relative z-10 w-[355px] h-auto object-contain"
+          onLoad={() => setIsLoaded(true)}
+          className={`w-full h-auto object-contain transition-opacity duration-500 ${isLoaded ? "opacity-100 block" : "opacity-0 hidden"
+            }`}
         />
-        <div className="absolute bottom-0 w-full sm:w-full md:w-[808px] h-[400px] bg-gradient-to-b from-[#E9F5FF] to-[
-#FFFFFF] rounded-t-[32px] z-0 ">
-        </div>
-      </motion.div>
-    </section>
+      </div>
+
+      <div className="absolute bottom-0 w-full sm:w-full md:w-[808px] h-[400px] bg-gradient-to-b from-[#E9F5FF] to-[#FFFFFF] rounded-t-[32px] z-0">
+      </div>
+    </motion.div>
   );
 };
 
