@@ -46,7 +46,11 @@ const googlePlayLogo = <svg width="18" height="18" viewBox="0 0 18 18" fill="non
 
 const Hero = () => {
   const buttoms = [
-    { name: 'Apple Store', logo: appleLogo, onClick: () => console.log('Clicked Apple') },
+    {
+      name: 'Apple Store', logo: appleLogo, onClick: function() {
+        window.open('https://apps.apple.com/ng/app/zoltraa/id6760113092', '_blank');
+      }
+    },
     {
       name: 'Google Play', logo: googlePlayLogo, onClick: function() {
         window.open('https://play.google.com/store/apps/details?id=com.zoltraa.app', '_blank');

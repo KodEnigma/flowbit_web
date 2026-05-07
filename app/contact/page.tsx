@@ -3,14 +3,53 @@ import Header from '../components/Header';
 import Footer from '../components/Footer';
 
 export const metadata: Metadata = {
-  title: 'Contact Us',
+  title: 'Contact',
   description:
-    'Get in touch with Zoltraa Technologies. Reach out for support, inquiries, or feedback about our expense tracking platform.',
+    'Reach Zoltraa support for account issues, billing questions, bug reports, and privacy inquiries.',
 };
+
+const channels: {
+  label: string;
+  value: string;
+  href?: string;
+  description: string;
+}[] = [
+  {
+    label: 'Email',
+    value: 'admin@zoltraa.com',
+    href: 'mailto:admin@zoltraa.com',
+    description: 'Account questions, billing, and general support.',
+  },
+  {
+    label: 'Privacy matters',
+    value: 'privacy@zoltraa.com',
+    href: 'mailto:privacy@zoltraa.com?subject=Privacy%20Inquiry',
+    description: 'Data removal requests and policy concerns.',
+  },
+  {
+    label: 'Phone',
+    value: '+234 705 293 6789',
+    href: 'tel:+2347052936789',
+    description: 'Weekdays, 9am–5pm WAT.',
+  },
+  {
+    label: 'Mail',
+    value: '775 Rolling Green Rd.',
+    description: 'Formal correspondence only.',
+  },
+];
+
+const topics = [
+  { label: 'Account issue', to: 'admin@zoltraa.com?subject=Account%20Issue' },
+  { label: 'Billing', to: 'admin@zoltraa.com?subject=Billing' },
+  { label: 'Bug report', to: 'admin@zoltraa.com?subject=Bug%20Report' },
+  { label: 'Feature request', to: 'admin@zoltraa.com?subject=Feature%20Request' },
+  { label: 'Data and privacy', to: 'privacy@zoltraa.com?subject=Privacy%20Inquiry' },
+] as const;
 
 export default function ContactPage() {
   return (
-    <main className="min-h-screen bg-white font-mono">
+    <main className="min-h-screen bg-white">
       <Header />
 
       <section className="max-w-[720px] mx-auto px-6 py-16 md:py-24">
@@ -18,87 +57,62 @@ export default function ContactPage() {
           SUPPORT
         </p>
         <h1 className="text-[28px]/[36px] md:text-[36px]/[44px] font-semibold text-[#1A1A1A] mb-2">
-          Contact Us
+          We&rsquo;re here to help
         </h1>
-        <p className="text-[#A3A3A3] text-[14px]/[20px] mb-12">
-          Have a question or need help? Reach out and we&apos;ll get back to you.
+        <p className="text-[#A3A3A3] text-[14px]/[20px] mb-12 max-w-[540px]">
+          Questions about your account, your data, or the product? Reach us directly
+          and we&rsquo;ll respond within one business day.
         </p>
 
-        <div className="flex flex-col gap-12">
-          {/* Contact Info */}
-          <div className="flex flex-col gap-4">
-            <h2 className="text-[16px]/[24px] font-semibold text-[#1A1A1A]">
-              Get in Touch
-            </h2>
-            <div className="flex flex-col gap-3 text-[14px]/[22px] text-[#555555]">
-              <p>+234 705 293 6789</p>
-              <p>admin@zoltraa.com</p>
-              <p>775 Rolling Green Rd.</p>
-            </div>
+        <div className="flex flex-col md:flex-row gap-12 md:gap-16">
+          <div className="flex-1 space-y-8">
+            {channels.map((c) => (
+              <div key={c.label}>
+                <p className="text-[11px] font-medium text-[#BABABA] tracking-wide mb-1 uppercase">
+                  {c.label}
+                </p>
+                {c.href ? (
+                  <a
+                    href={c.href}
+                    className="text-[14px] font-medium text-[#4797F6] hover:text-[#3578D4] transition-colors"
+                  >
+                    {c.value}
+                  </a>
+                ) : (
+                  <p className="text-[14px] text-[#555555]">{c.value}</p>
+                )}
+                {c.description && (
+                  <p className="text-[13px] text-[#767676] mt-0.5">{c.description}</p>
+                )}
+              </div>
+            ))}
           </div>
 
-          {/* Contact Form */}
-          <div className="flex flex-col gap-4">
-            <h2 className="text-[16px]/[24px] font-semibold text-[#1A1A1A]">
-              Send Us a Message
+          <div className="flex-1">
+            <h2 className="text-[14px] font-semibold text-[#1A1A1A] mb-4">
+              Choose your topic
             </h2>
-            <form className="flex flex-col gap-5">
-              <div className="flex flex-col gap-1.5">
-                <label htmlFor="email" className="text-[13px] text-[#888888]">
-                  Email Address
-                </label>
-                <input
-                  type="email"
-                  id="email"
-                  name="email"
-                  required
-                  className="w-full border border-gray-200 rounded-md px-3 py-2 text-[14px] text-[#1A1A1A] placeholder:text-gray-300 focus:outline-none focus:border-gray-400 transition-colors"
-                  placeholder="you@example.com"
-                />
-              </div>
-
-              <div className="flex flex-col gap-1.5">
-                <label htmlFor="issue" className="text-[13px] text-[#888888]">
-                  Issue Type
-                </label>
-                <select
-                  id="issue"
-                  name="issue"
-                  required
-                  className="w-full border border-gray-200 rounded-md px-3 py-2 text-[14px] text-[#1A1A1A] focus:outline-none focus:border-gray-400 transition-colors bg-white"
+            <div className="space-y-3">
+              {topics.map((t) => (
+                <a
+                  key={t.label}
+                  href={`mailto:${t.to}`}
+                  className="flex items-center gap-2 group"
                 >
-                  <option value="" disabled>Select an issue type</option>
-                  <option value="general">General Inquiry</option>
-                  <option value="account">Account Issue</option>
-                  <option value="billing">Billing</option>
-                  <option value="bug">Bug Report</option>
-                  <option value="feature">Feature Request</option>
-                  <option value="privacy">Privacy Concern</option>
-                  <option value="other">Other</option>
-                </select>
-              </div>
-
-              <div className="flex flex-col gap-1.5">
-                <label htmlFor="description" className="text-[13px] text-[#888888]">
-                  Description
-                </label>
-                <textarea
-                  id="description"
-                  name="description"
-                  required
-                  rows={6}
-                  className="w-full border border-gray-200 rounded-md px-3 py-2 text-[14px] text-[#1A1A1A] placeholder:text-gray-300 focus:outline-none focus:border-gray-400 transition-colors resize-none"
-                  placeholder="Describe your issue or question..."
-                />
-              </div>
-
-              <button
-                type="submit"
-                className="self-start bg-[#1A1A1A] text-white text-[14px] font-medium px-6 py-2.5 rounded-md hover:bg-black transition-colors"
-              >
-                Submit
-              </button>
-            </form>
+                  <span className="w-1.5 h-1.5 rounded-full bg-[#4797F6] shrink-0" />
+                  <span className="text-[14px] text-[#555555] group-hover:text-[#1A1A1A] transition-colors">
+                    {t.label}
+                  </span>
+                </a>
+              ))}
+            </div>
+            <p className="mt-8 text-[13px] text-[#767676] leading-[1.6]">
+              We aim to respond within{' '}
+              <strong className="text-[#1A1A1A] font-medium">one business day</strong>.
+              For urgent issues, include{' '}
+              <strong className="text-[#1A1A1A] font-medium">Urgent</strong> in your
+              subject line.
+            </p>
           </div>
         </div>
       </section>
