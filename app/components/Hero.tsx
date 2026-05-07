@@ -1,4 +1,5 @@
 "use client";
+import Image from "next/image";
 import { motion } from 'framer-motion';
 import { useState } from 'react';
 
@@ -177,24 +178,24 @@ const MockupSection = () => {
       transition={{ duration: 0.7, delay: 0.45, ease: [0.22, 1, 0.36, 1] }}
     >
       <div className="relative z-10 w-[355px] min-h-[400px] flex items-center justify-center">
-
         {!isLoaded && (
-          <div className="w-full h-[600px] bg-gray-600 animate-pulse rounded-2xl overflow-hidden">
+          <div className="absolute inset-0 bg-gray-200 animate-pulse rounded-2xl overflow-hidden">
             <div className="w-full h-full bg-gradient-to-r from-transparent via-white/30 to-transparent animate-[shimmer_1.5s_infinite] -translate-x-full" />
           </div>
         )}
-
-        <img
+        <Image
           src="/Shots_Mockups_1.png"
           alt="App Mockup"
+          width={355}
+          height={600}
+          priority
           onLoad={() => setIsLoaded(true)}
-          className={`w-full h-auto object-contain transition-opacity duration-500 ${isLoaded ? "opacity-100 block" : "opacity-0 hidden"
-            }`}
+          className={`w-full h-auto object-contain transition-opacity duration-500 ${
+            isLoaded ? "opacity-100" : "opacity-0"
+          }`}
         />
       </div>
-
-      <div className="absolute bottom-0 w-full sm:w-full md:w-[808px] h-[400px] bg-gradient-to-b from-[#E9F5FF] to-[#FFFFFF] rounded-t-[32px] z-0">
-      </div>
+      <div className="absolute bottom-0 w-full sm:w-full md:w-[808px] h-[400px] bg-gradient-to-b from-[#E9F5FF] to-[#FFFFFF] rounded-t-[32px] z-0" />
     </motion.div>
   );
 };
