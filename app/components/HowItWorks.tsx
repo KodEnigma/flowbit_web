@@ -6,17 +6,17 @@ const steps = [
   {
     title: 'Connect Your Accounts',
     desc: 'Securely link your bank accounts in seconds and bring all your financial data into one place.',
-    video: './how_it_work_1.mp4',
+    video: './how_it_work_1.gif',
   },
   {
     title: 'We Analyze Your Transactions',
     desc: 'Zoltraa automatically categorizes and processes your transactions to surface meaningful patterns.',
-    video: './how_it_work_2.mp4',
+    video: './how_it_work_2.gif',
   },
   {
     title: 'Get Insights & Ask Questions',
     desc: 'View clear summaries of your finances or ask questions to get instant answers about your spending.',
-    video: './how_it_work_3.mp4',
+    video: './how_it_work_3.gif',
   },
 ];
 
