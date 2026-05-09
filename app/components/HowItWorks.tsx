@@ -6,17 +6,17 @@ const steps = [
   {
     title: 'Connect Your Accounts',
     desc: 'Securely link your bank accounts in seconds and bring all your financial data into one place.',
-    video: './how_it_work_1.gif',
+    video: './how_it_work_1.webp',
   },
   {
     title: 'We Analyze Your Transactions',
     desc: 'Zoltraa automatically categorizes and processes your transactions to surface meaningful patterns.',
-    video: './how_it_work_2.gif',
+    video: './how_it_work_2.webp',
   },
   {
     title: 'Get Insights & Ask Questions',
     desc: 'View clear summaries of your finances or ask questions to get instant answers about your spending.',
-    video: './how_it_work_3.gif',
+    video: './how_it_work_3.webp',
   },
 ];
 
@@ -235,14 +235,11 @@ const HowItWorks = () => {
                   }}
                 />
                 <AnimatePresence mode="wait">
-                  <motion.video
+                  <motion.img
                     key={steps[active].video}
                     src={steps[active].video}
-                    autoPlay
-                    muted
-                    loop
-                    playsInline
-                    className="w-full h-full rounded-[8px]"
+                    alt={steps[active].title}
+                    className="w-full h-full rounded-[8px] object-contain"
                     initial={{ opacity: 0, scale: 1.03 }}
                     animate={{ opacity: 1, scale: 1 }}
                     exit={{ opacity: 0, scale: 0.98 }}
