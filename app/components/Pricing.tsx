@@ -1,12 +1,15 @@
 "use client";
 import { useRef, useEffect, useState } from 'react';
 import { motion } from 'framer-motion';
+import { openDeviceStore } from '../lib/storeLinks';
 
 type Feature = { desc: string };
 
 type PricingCardProps = {
   tier: string;
   price: string;
+  originalPrice?: string;
+  badge?: string;
   description: string;
   features: Feature[];
   ctaLabel: string;
@@ -34,6 +37,8 @@ const proFeatures: Feature[] = [
 const PricingCard = ({
   tier,
   price,
+  originalPrice,
+  badge,
   description,
   features,
   ctaLabel,
@@ -58,8 +63,22 @@ const PricingCard = ({
         }}
       >
         {/* Tier + price */}
-        <h3 className="text-[#A3A3A3] font-medium text-[14px]">{tier}</h3>
-        <p className="text-[24px]/[32px] font-semibold text-[#1A1A1A] mb-[12px]">{price}</p>
+        <div className="flex items-center justify-between gap-3 mb-[4px]">
+          <h3 className="text-[#A3A3A3] font-medium text-[14px]">{tier}</h3>
+          {badge && (
+            <span className="shrink-0 rounded-full bg-[#E8F2FF] px-[10px] py-[4px] text-[11px]/[14px] font-semibold text-[#2878D8]">
+              {badge}
+            </span>
+          )}
+        </div>
+        <div className="mb-[12px] flex flex-wrap items-baseline gap-x-[10px] gap-y-[2px]">
+          <p className="text-[24px]/[32px] font-semibold text-[#1A1A1A]">{price}</p>
+          {originalPrice && (
+            <p className="text-[14px]/[20px] font-medium text-[#A3A3A3] line-through">
+              {originalPrice}
+            </p>
+          )}
+        </div>
 
         {/* Description */}
         <p className="text-[14px]/[20px] text-[#A3A3A3] mb-[30px]">{description}</p>
@@ -82,6 +101,8 @@ const PricingCard = ({
 
         {/* CTA */}
         <motion.button
+          type="button"
+          onClick={openDeviceStore}
           className="w-full py-[10px] rounded-[12px] font-medium text-[14px] transition-colors"
           style={
             highlighted
@@ -119,7 +140,7 @@ const TextColumn = ({ hasEntered }: { hasEntered: boolean }) => (
       animate={hasEntered ? { opacity: 1, y: 0 } : {}}
       transition={{ duration: 0.5, delay: 0.08, ease: [0.22, 1, 0.36, 1] }}
     >
-      Let's talk <br /> Zoltraa pricing
+      Let&apos;s talk <br /> Zoltraa pricing
     </motion.h2>
     <motion.p
       className="text-[#767676] text-[14px]/[20px]"
@@ -127,7 +148,7 @@ const TextColumn = ({ hasEntered }: { hasEntered: boolean }) => (
       animate={hasEntered ? { opacity: 1, y: 0 } : {}}
       transition={{ duration: 0.4, delay: 0.14 }}
     >
-      Choose the plan that's right for you on Zoltraa
+      Choose the plan that&apos;s right for you on Zoltraa
     </motion.p>
   </div>
 );
@@ -166,11 +187,13 @@ const Pricing = () => {
         />
         <PricingCard
           tier="Pro"
-          price="₦2,500/mo"
-          description="Unlock the full power of Zoltraa. Get deeper insights, unlimited history, and priority access to Zolt — your AI finance assistant."
+          price="Free for now"
+          originalPrice="₦2,500/mo"
+          badge="Beta free"
+          description="Use Pro free while we're figuring out the best pricing. It will become a paid plan later, but you can unlock the full Pro experience now."
           features={proFeatures}
-          ctaLabel="Upgrade to Pro"
-          ctaNote="Cancel anytime"
+          ctaLabel="Try Pro Free"
+          ctaNote="Paid plan coming later"
           highlighted
           delay={0.32}
           hasEntered={hasEntered}

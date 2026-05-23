@@ -2,6 +2,7 @@
 
 import { motion } from 'framer-motion';
 import { useRouter } from 'next/navigation';
+import { openDeviceStore } from '../lib/storeLinks';
 
 export const svgString = 
 <svg width="100" height="24" viewBox="0 0 100 24" fill="none" xmlns="http://www.w3.org/2000/svg">
@@ -61,11 +62,16 @@ const Header = () => {
 
         {/* Right — CTA */}
         <div className="flex justify-end">
-          <div className="flex items-center bg-blue-400 rounded-full px-3 py-1.5 md:px-4 md:py-2 gap-2 md:gap-3">
+          <button
+            type="button"
+            onClick={openDeviceStore}
+            aria-label="Download Zoltraa"
+            className="flex items-center bg-blue-400 rounded-full px-3 py-1.5 md:px-4 md:py-2 gap-2 md:gap-3 transition-colors hover:bg-blue-500"
+          >
             {appleLogo}
             <div className="w-px h-4 md:h-5 bg-white opacity-40" />
             {androidLogo}
-          </div>
+          </button>
         </div>
       </Container>
     </motion.header>
