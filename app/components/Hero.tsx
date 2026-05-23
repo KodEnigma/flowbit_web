@@ -185,11 +185,12 @@ const MockupSection = () => {
           </div>
         )}
         <Image
-          src="/Shots_Mockups_1.png"
+          src="/Shots_Mockups_1.webp"
           alt="App Mockup"
           width={355}
           height={600}
           priority
+          sizes="355px"
           onLoad={() => setIsLoaded(true)}
           className={`w-full h-auto object-contain transition-opacity duration-500 ${
             isLoaded ? "opacity-100" : "opacity-0"
