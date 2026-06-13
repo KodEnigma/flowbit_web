@@ -89,7 +89,7 @@ export default function RootLayout({
       lang="en"
       className={`${geistSans.variable} ${geistMono.variable} h-full antialiased`}
     >
-      <head>
+      <body className="min-h-full flex flex-col pt-[56px] md:pt-[64px]">
         <Script id="meta-pixel" strategy="afterInteractive">
           {`!function(f,b,e,v,n,t,s)
 {if(f.fbq)return;n=f.fbq=function(){n.callMethod?
@@ -107,8 +107,6 @@ fbq('track','PageView');`}
             src="https://www.facebook.com/tr?id=764409761085914&ev=PageView&noscript=1"
           />
         </noscript>
-      </head>
-      <body className="min-h-full flex flex-col pt-[56px] md:pt-[64px]">
         <PostHogProvider>
           {children}
           <Analytics />
