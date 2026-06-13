@@ -2,7 +2,8 @@
 
 import { motion } from 'framer-motion';
 import { useRouter } from 'next/navigation';
-import { openDeviceStore } from '../lib/storeLinks';
+import { openDeviceStore, getDeviceStoreUrl, APP_STORE_URL } from '../lib/storeLinks';
+import { trackStoreOpen } from '../lib/analytics';
 
 export const svgString = 
 <svg width="100" height="24" viewBox="0 0 100 24" fill="none" xmlns="http://www.w3.org/2000/svg">
@@ -64,7 +65,10 @@ const Header = () => {
         <div className="flex justify-end">
           <button
             type="button"
-            onClick={openDeviceStore}
+            onClick={() => {
+              trackStoreOpen(getDeviceStoreUrl() === APP_STORE_URL ? 'apple' : 'android', 'header')
+              openDeviceStore()
+            }}
             aria-label="Download Zoltraa"
             className="flex items-center bg-blue-400 rounded-full px-3 py-1.5 md:px-4 md:py-2 gap-2 md:gap-3 transition-colors hover:bg-blue-500"
           >

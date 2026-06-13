@@ -1,7 +1,8 @@
 "use client";
 import { useRef, useEffect, useState } from 'react';
 import { motion } from 'framer-motion';
-import { openDeviceStore } from '../lib/storeLinks';
+import { openDeviceStore, getDeviceStoreUrl, APP_STORE_URL } from '../lib/storeLinks';
+import { trackStoreOpen } from '../lib/analytics';
 
 type Feature = { desc: string };
 
@@ -102,7 +103,10 @@ const PricingCard = ({
         {/* CTA */}
         <motion.button
           type="button"
-          onClick={openDeviceStore}
+          onClick={() => {
+            trackStoreOpen(getDeviceStoreUrl() === APP_STORE_URL ? 'apple' : 'android', 'pricing')
+            openDeviceStore()
+          }}
           className="w-full py-[10px] rounded-[12px] font-medium text-[14px] transition-colors"
           style={
             highlighted
