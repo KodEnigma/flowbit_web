@@ -1,5 +1,6 @@
 import type { Metadata, Viewport } from "next";
 import { Geist, Geist_Mono } from "next/font/google";
+import Script from "next/script";
 import { Analytics } from "@vercel/analytics/next";
 import { SpeedInsights } from "@vercel/speed-insights/next";
 import { PostHogProvider } from "./components/PostHogProvider";
@@ -88,8 +89,10 @@ export default function RootLayout({
       lang="en"
       className={`${geistSans.variable} ${geistMono.variable} h-full antialiased`}
     >
-      <head>
-        <script
+      <body className="min-h-full flex flex-col pt-[56px] md:pt-[64px]">
+        <Script
+          id="meta-pixel"
+          strategy="beforeInteractive"
           dangerouslySetInnerHTML={{
             __html: `!function(f,b,e,v,n,t,s)
 {if(f.fbq)return;n=f.fbq=function(){n.callMethod?
@@ -99,17 +102,15 @@ n.queue=[];t=b.createElement(e);t.async=!0;
 t.src=v;s=b.getElementsByTagName(e)[0];
 s.parentNode.insertBefore(t,s)}(window,document,'script',
 'https://connect.facebook.net/en_US/fbevents.js');
-fbq('init','764409761085914');
+fbq('init','2010154239871449');
 fbq('track','PageView');`,
           }}
         />
         <noscript>
           <img height="1" width="1" style={{display:'none'}}
-            src="https://www.facebook.com/tr?id=764409761085914&ev=PageView&noscript=1"
+            src="https://www.facebook.com/tr?id=2010154239871449&ev=PageView&noscript=1"
           />
         </noscript>
-      </head>
-      <body className="min-h-full flex flex-col pt-[56px] md:pt-[64px]">
         <PostHogProvider>
           {children}
           <Analytics />
