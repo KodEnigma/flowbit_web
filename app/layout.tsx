@@ -1,6 +1,5 @@
 import type { Metadata, Viewport } from "next";
 import { Geist, Geist_Mono } from "next/font/google";
-import Script from "next/script";
 import { Analytics } from "@vercel/analytics/next";
 import { SpeedInsights } from "@vercel/speed-insights/next";
 import { PostHogProvider } from "./components/PostHogProvider";
@@ -89,10 +88,8 @@ export default function RootLayout({
       lang="en"
       className={`${geistSans.variable} ${geistMono.variable} h-full antialiased`}
     >
-      <body className="min-h-full flex flex-col pt-[56px] md:pt-[64px]">
-        <Script
-          id="meta-pixel"
-          strategy="beforeInteractive"
+      <head>
+        <script
           dangerouslySetInnerHTML={{
             __html: `!function(f,b,e,v,n,t,s)
 {if(f.fbq)return;n=f.fbq=function(){n.callMethod?
@@ -111,6 +108,8 @@ fbq('track','PageView');`,
             src="https://www.facebook.com/tr?id=2010154239871449&ev=PageView&noscript=1"
           />
         </noscript>
+      </head>
+      <body className="min-h-full flex flex-col pt-[56px] md:pt-[64px]">
         <PostHogProvider>
           {children}
           <Analytics />
