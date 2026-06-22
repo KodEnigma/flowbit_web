@@ -31,8 +31,24 @@ export function trackSubscriptionPurchase(value: number, currency = 'USD', plan?
 }
 
 export function trackPageView(url: string) {
-  posthog.capture('$pageview', { $current_url: url })
+  // $pageview is captured automatically on route change by PostHogProvider.
   if (typeof window !== 'undefined') {
-    window.fbq('track', 'PageView')
+    window.fbq('track', 'PageView', { url })
   }
+}
+
+export function trackOutboundLink(href: string, label: string, location: string) {
+  posthog.capture('outbound_link_clicked', { href, label, location })
+}
+
+export function trackFooterLinkClick(label: string, href: string) {
+  posthog.capture('footer_link_clicked', { label, href })
+}
+
+export function trackFaqToggle(question: string, opened: boolean) {
+  posthog.capture('faq_toggled', { question, opened })
+}
+
+export function trackContactChannelClick(label: string) {
+  posthog.capture('contact_channel_clicked', { label })
 }

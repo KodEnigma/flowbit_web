@@ -1,6 +1,7 @@
 import type { Metadata } from 'next';
 import Header from '../components/Header';
 import Footer from '../components/Footer';
+import { TrackedLink } from './TrackedLink';
 
 export const metadata: Metadata = {
   title: 'Contact',
@@ -72,12 +73,13 @@ export default function ContactPage() {
                   {c.label}
                 </p>
                 {c.href ? (
-                  <a
+                  <TrackedLink
                     href={c.href}
+                    label={c.label}
                     className="text-[14px] font-medium text-[#4797F6] hover:text-[#3578D4] transition-colors"
                   >
                     {c.value}
-                  </a>
+                  </TrackedLink>
                 ) : (
                   <p className="text-[14px] text-[#555555]">{c.value}</p>
                 )}
@@ -94,16 +96,17 @@ export default function ContactPage() {
             </h2>
             <div className="space-y-3">
               {topics.map((t) => (
-                <a
+                <TrackedLink
                   key={t.label}
                   href={`mailto:${t.to}`}
+                  label={t.label}
                   className="flex items-center gap-2 group"
                 >
                   <span className="w-1.5 h-1.5 rounded-full bg-[#4797F6] shrink-0" />
                   <span className="text-[14px] text-[#555555] group-hover:text-[#1A1A1A] transition-colors">
                     {t.label}
                   </span>
-                </a>
+                </TrackedLink>
               ))}
             </div>
             <p className="mt-8 text-[13px] text-[#767676] leading-[1.6]">

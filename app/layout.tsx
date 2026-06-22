@@ -49,21 +49,12 @@ export const metadata: Metadata = {
     title: "Zoltraa — Smart Expense Tracking",
     description:
       "Secure expense tracking that analyzes bank statements in-memory. Your financial data never touches disk.",
-    images: [
-      {
-        url: "/og.png",
-        width: 1200,
-        height: 630,
-        alt: "Zoltraa — Smart Expense Tracking",
-      },
-    ],
   },
   twitter: {
     card: "summary_large_image",
     title: "Zoltraa — Smart Expense Tracking",
     description:
       "Secure expense tracking that analyzes bank statements in-memory. Your financial data never touches disk.",
-    images: ["/og.png"],
   },
   robots: {
     index: true,
@@ -83,6 +74,7 @@ export default function RootLayout({
 }: Readonly<{
   children: React.ReactNode;
 }>) {
+  const pixelId = process.env.VITE_META_PIXEL_ID || '2010154239871449';
   return (
     <html
       lang="en"
@@ -99,13 +91,13 @@ n.queue=[];t=b.createElement(e);t.async=!0;
 t.src=v;s=b.getElementsByTagName(e)[0];
 s.parentNode.insertBefore(t,s)}(window,document,'script',
 'https://connect.facebook.net/en_US/fbevents.js');
-fbq('init','2010154239871449');
+fbq('init','${pixelId}');
 fbq('track','PageView');`,
           }}
         />
         <noscript>
           <img height="1" width="1" style={{display:'none'}}
-            src="https://www.facebook.com/tr?id=2010154239871449&ev=PageView&noscript=1"
+            src={`https://www.facebook.com/tr?id=${pixelId}&ev=PageView&noscript=1`}
           />
         </noscript>
       </head>

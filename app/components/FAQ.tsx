@@ -1,6 +1,7 @@
 "use client";
 import { useState, useRef, useEffect } from 'react';
 import { motion, AnimatePresence } from 'framer-motion';
+import { trackFaqToggle } from '../lib/analytics';
 
 const faqs = [
   {
@@ -165,7 +166,11 @@ const FAQ = () => {
               index={i}
               hasEntered={hasEntered}
               isOpen={openIndex === i}
-              onToggle={() => setOpenIndex(openIndex === i ? null : i)}
+              onToggle={() => {
+                const opening = openIndex !== i;
+                setOpenIndex(opening ? i : null);
+                trackFaqToggle(item.q, opening);
+              }}
             />
           ))}
         </div>
